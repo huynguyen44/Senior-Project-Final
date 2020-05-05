@@ -1,0 +1,118 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <div *ngIf="!showForm; else formTemplate"  style="width: 90%; margin: 2vh">
+    <button mat-stroked-button color="accent" class="btn-block width-100" (click)="toggleShowForm()">
+      <span class="spinner-border spinner-border-sm mr-1"></span>
+      Register A New Member!
+    </button>
+  </div>
+  <ng-template #formTemplate>
+    <mat-card class="box" style="width: 90%; margin: 2vh">
+      <mat-card-header>
+        <mat-card-title>Register A New Member</mat-card-title>
+      </mat-card-header>
+
+      <form (ngSubmit)="onSubmitNew()" class="example-form" [formGroup]="fullForm">
+        <mat-card-content fxLayout="column">
+
+          <div fxLayout="row">
+            <div fxFlex="2 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <input matInput required placeholder="First Name" formControlName="firstName" [(ngModel)]="tempRegistrant.firstName">
+              </mat-form-field>
+            </div>
+            <div fxFlex="1 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <input matInput placeholder="Middle Name" formControlName="middleName" [(ngModel)]="tempRegistrant.middleName">
+              </mat-form-field>
+            </div>
+            <div fxFlex="2 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <input matInput required placeholder="Last Name" formControlName="lastName" [(ngModel)]="tempRegistrant.lastName">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="2 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <input matInput required placeholder="Email" formControlName="email" [(ngModel)]="tempRegistrant.email">
+                <mat-error *ngIf="emailFormControl.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div fxLayout="row">
+            <div fxFlex="2 0 0" class="no-margin" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <input matInput required placeholder="Saint Name" formControlName="saintName" [(ngModel)]="tempRegistrant.saintName">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="2 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <mat-label>Select your Role (check all that apply)</mat-label>
+                <mat-select required multiple formControlName="roles" [(ngModel)]="tempRegistrant.roles" [compareWith]="myCompare">
+                  <mat-option *ngFor="let role of possibleRoles;" [value]="role">
+                    {{role.roleName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="2 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <mat-label>Select your Course (check all that apply)</mat-label>
+                <mat-select required multiple formControlName="courses" [(ngModel)]="tempRegistrant.courses" [compareWith]="myCompare">
+                  <mat-option *ngFor="let course of possibleCourses;" [value]="course">
+                    {{course.courseName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+          </div>
+
+          <div fxLayout="row">
+            <div fxFlex="3 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <input matInput required placeholder="Address" formControlName="address" [(ngModel)]="tempRegistrant.address">
+              </mat-form-field>
+            </div>
+            <div fxFlex="1 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <input matInput required placeholder="City" formControlName="city" [(ngModel)]="tempRegistrant.city">
+              </mat-form-field>
+            </div>
+            <div fxFlex="1 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <mat-label>State</mat-label>
+                <mat-select required [(ngModel)]="tempRegistrant.state" formControlName="state" [compareWith]="stateCompare">
+                  <mat-option [value]="state" *ngFor="let state of possibleStates">{{state.stateAbbr}}
+                    : {{state.stateName}} </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxFlex="1 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <input matInput required placeholder="Zip Code" formControlName="zipCode" [(ngModel)]="tempRegistrant.zipCode">
+              </mat-form-field>
+            </div>
+
+            <div fxFlex="1 0 0" class="no-margin">
+              <mat-form-field class="width-100 small-margin">
+                <input matInput required placeholder="Phone Number" formControlName="phone" [(ngModel)]="tempRegistrant.phone">
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+      </form>
+
+      <button mat-stroked-button color="accent" class="btn-block" (click)="toggleShowForm()">
+        <span class="spinner-border spinner-border-sm mr-1"></span>
+        Cancel
+      </button>
+      <button mat-stroked-button color="accent" class="btn-block" style="margin-left: 1vh" [disabled]="fullForm.invalid" (click)="onSubmitNew()">
+        <span class="spinner-border spinner-border-sm mr-1"></span>
+        Register
+      </button>
+    </mat-card>
+  </ng-template>
+</div>

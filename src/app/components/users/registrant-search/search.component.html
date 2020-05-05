@@ -1,0 +1,38 @@
+<div style="padding: 1vw; overflow: scroll">
+  <h1>Current Registrants!</h1>
+  <div *ngFor="let person of (allRegistrants$ | async)" class="mat-typography" style="padding: 1vw; border-bottom: 1px grey solid">
+    <div style="display: flex;">
+      <h2>{{person.firstName}} {{person.middleName}} {{person.lastName}}</h2>
+
+      <button *ngIf="(currentUser$ | async) == person.username || (permissions$ | async ) == 'admin'"  class="btn-block"
+              color="accent" mat-stroked-button style="margin-left: 2vw">
+        <span class="spinner-border spinner-border-sm mr-1"></span>
+        Edit
+      </button>
+    </div>
+    <div style="display: flex">
+      <p style="font-weight: bold; font-size: larger">Saint: </p>
+      <p style="margin-left: 1vw"> {{person.saintName}} </p>
+    </div>
+    <div style="display: flex">
+      <div style="flex: 1">
+        <p style="font-weight: bold; font-size: larger">Roles: </p>
+        <div style="display: flex; flex-direction: column;">
+          <div style="flex: 1" *ngFor="let role of person.roles">{{role.roleName}}</div>
+        </div>
+      </div>
+      <div style="flex: 1">
+        <p style="font-weight: bold; font-size: larger">Classes: </p>
+        <div style="display: flex; flex-direction: column">
+          <div style="flex: 1" *ngFor="let course of person.courses">{{course.courseName}}</div>
+        </div>
+      </div>
+      <div style="flex: 1">
+        <p style="font-weight: bold; font-size: larger">Address: </p>
+        <p>{{person.address}}</p>
+        <p>{{person.city}}, {{person.state.stateAbbr}}, {{person.zipCode}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

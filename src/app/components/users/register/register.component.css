@@ -1,0 +1,26 @@
+.small-margin {
+  margin: 0!important;
+  padding: 1vh;
+}
+
+.no-margin {
+  margin: 0!important;
+  display: flex;
+  width: 100%;
+}
+
+mat-form-field {
+  min-width: 0;
+}
+
+::ng-deep .mat-form-field-infix {
+  width: 100%!important;
+}
+
+/*::ng-deep .mat-form-field label {
+  font-size: 2vh;
+}*/
+
+::ng-deep .mat-form-field.mat-form-field-should-float label {
+  font-size: 2vh;
+}

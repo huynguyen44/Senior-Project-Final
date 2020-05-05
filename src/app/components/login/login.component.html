@@ -1,0 +1,34 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" (ngSubmit)="onNewSubmit(username, password)">
+      <mat-form-field class="width-100">
+        <input matInput placeholder="Username" name="name" [(ngModel)]="username"
+               (submit)="passwordIn.focus()" autofocus>
+        <mat-error>
+          Username is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="width-100">
+        <input matInput #passwordIn placeholder="Password" name="phone" [(ngModel)]="password"
+               (submit)="onSubmit()" type="password" maxlength="10">
+        <mat-error>
+          Password is required
+        </mat-error>
+      </mat-form-field>
+      <button [disabled]="username == '' || password == ''" class="btn-block" color="accent" type="submit" mat-stroked-button>
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Login
+      </button>
+    </form>
+
+    <div *ngIf="isError">
+      <p style="color: red; text-align: center"> Username and password combination does not match our records. Please try again!</p>
+    </div>
+  </mat-card>
+</div>

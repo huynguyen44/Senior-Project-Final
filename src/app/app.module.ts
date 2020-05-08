@@ -22,7 +22,6 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/users/register/register.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {AboutComponent} from './components/about/about.component';
-import {fakeBackendProvider} from './helpers';
 import {SearchComponent} from './components/users/registrant-search/search.component';
 import {IAppState, rootReducer} from './store';
 import {NgRedux, NgReduxModule} from '@angular-redux/store';
@@ -57,9 +56,6 @@ import { UsersComponent } from './components/users/users.component';
     MatCardModule,
     NgReduxModule,
     ShowHidePasswordModule,
-  ],
-  providers: [
-    fakeBackendProvider
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

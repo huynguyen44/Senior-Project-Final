@@ -5,7 +5,7 @@ import { RegisterComponent } from './components/users/register/register.componen
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import {SearchComponent} from './components/users/registrant-search/search.component';
-import {UsersComponent} from "./components/users/users.component";
+import {UsersComponent} from './components/users/users.component';
 
 
 

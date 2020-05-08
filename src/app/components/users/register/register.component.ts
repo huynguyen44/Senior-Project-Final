@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
     courses: new FormControl('', [Validators.required]),
     saintName: new FormControl('', [Validators.required]),
   });
-  // matcher = new MyErrorStateMatcher();
+
 
   selected = new FormControl('valid', [
     Validators.required,
@@ -55,8 +55,6 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log('REGISTRANT NAME: ' + this.inputRegistrant.firstName);
-
     if (this.inputRegistrant) {
       this.tempRegistrant = JSON.parse(JSON.stringify(this.inputRegistrant));
     } else {
@@ -64,20 +62,10 @@ export class RegisterComponent implements OnInit {
     }
 
     this.setUsername();
-    // console.log('EXCUSE ME: ' + this.tempRegistrant.roles[0].roleName);
   }
 
   getErrorMessage() {
     return this.emailFormControl.hasError('email') ? 'Not a valid email' : '';
-  }
-
-  onSubmit(data) {
-    // tslint:disable-next-line:max-line-length
-    const allInfo = 'My name is: ' + this.tempRegistrant.saintName + this.tempRegistrant.lastName +
-      this.tempRegistrant.middleName + this.tempRegistrant.firstName + '.\nMy address is: ' +
-      this.tempRegistrant.address + ', ' + this.tempRegistrant.city + this.tempRegistrant.state.stateAbbr +
-      this.tempRegistrant.zipCode + '.\nMy email is' + this.tempRegistrant.email;
-    alert(allInfo);
   }
 
   onSubmitNew() {

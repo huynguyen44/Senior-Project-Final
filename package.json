@@ -1,13 +1,14 @@
 {
   "name": "senior-project",
   "version": "0.0.0",
+  "homepage": "https://huynguyen44.github.io/Senior-Project-Final/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
   },
   "private": true,
   "dependencies": {
@@ -36,7 +37,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.23",
-    "@angular/cli": "~8.3.22",
+    "@angular/cli": "^11.2.9",
     "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
     "@types/jasmine": "~3.3.8",
@@ -44,10 +45,11 @@
     "@types/node": "~8.9.4",
     "angular2-template-loader": "^0.6.2",
     "codelyzer": "^5.0.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^3.2.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "^4.4.1",
+    "karma": "^6.3.2",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",

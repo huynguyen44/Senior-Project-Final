@@ -1,14 +1,13 @@
 {
   "name": "senior-project",
   "version": "0.0.0",
-  "homepage": "https://huynguyen44.github.io/Senior-Project-Final/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
